@@ -6,7 +6,7 @@ interface INavForm {
 
 export const NavForm: INavForm[] = [
   {
-    link: '/home',
+    link: '/',
     children: 'Home'
   },
   {
