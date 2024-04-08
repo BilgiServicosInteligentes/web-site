@@ -1,3 +1,4 @@
+import React from 'react'
 import { Field, Form, Formik } from 'formik'
 import { Col, Row } from 'react-bootstrap'
 import { initialValues, validationSchema } from './ContactRegisterForm.form'
@@ -179,10 +180,11 @@ export function ContactRegisterForm() {
           <Row className="mb-4">
             <Col className="d-flex justify-content-center">
               <Button
+                type="submit"
                 button_size="xxl"
                 styles="primary"
                 className="button-form"
-                disabled={!isValid}
+                disabled={!isValid} // Usa isSubmitting corretamente
               >
                 Enviar Mensagem
               </Button>
