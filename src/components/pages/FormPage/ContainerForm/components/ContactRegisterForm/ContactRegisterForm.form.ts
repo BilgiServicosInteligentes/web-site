@@ -39,10 +39,6 @@ export const validationSchema = Yup.object().shape({
   celular: Yup.string().required('Campo Obrigatório'),
   totalClientes: Yup.string().required('Campo Obrigatório'),
   sistemaAtual: Yup.string().required('Campo Obrigatório'),
-  mensagem: Yup.string()
-    .required('Campo Obrigatório')
-    .min(1024, 'A mensagem deve ter o minimo de 1024 caracteres')
-    .max(2048, 'A mensagem deve ter o máximo de 2048 caracteres'),
   gestaoProcessos: Yup.boolean().required('Campo Obrigatório'),
   businessInteligence: Yup.boolean().required('Campo Obrigatório'),
   contactCenter: Yup.boolean().required('Campo Obrigatório')
