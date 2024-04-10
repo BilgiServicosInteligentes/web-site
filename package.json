@@ -20,6 +20,7 @@
   },
   "dependencies": {
     "@heroicons/react": "^2.1.1",
+    "@prisma/client": "^5.12.1",
     "@react-google-maps/api": "^2.19.3",
     "@typescript-eslint/eslint-plugin": "^7.0.1",
     "@typescript-eslint/parser": "^7.0.1",
@@ -77,6 +78,7 @@
     "lint-staged": "^15.2.2",
     "plop": "^4.0.1",
     "prettier": "3.2.5",
+    "prisma": "^5.12.1",
     "storybook": "^7.6.16",
     "typescript": "^5"
   }

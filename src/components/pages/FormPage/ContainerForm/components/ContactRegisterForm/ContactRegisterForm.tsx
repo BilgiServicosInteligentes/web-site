@@ -1,5 +1,5 @@
 import React from 'react'
-import { Field, Form, Formik } from 'formik'
+import { Field, Form, Formik, FormikHelpers } from 'formik'
 import { Col, Row } from 'react-bootstrap'
 import { initialValues, validationSchema } from './ContactRegisterForm.form'
 import { InputField } from '@/components/core/Form/Fields/InputField'
@@ -8,12 +8,52 @@ import { CheckBox } from '@/components/core/Form/Fields/CheckBox'
 import { TextArea } from '@/components/core/Form/Fields/TextArea'
 import { cellPhoneNumberMask } from '@/components/pages/components/utils/FunctionMask'
 
+interface FormValues {
+  primeiroNome: string
+  ultimoNome: string
+  email: string
+  celular: string
+  totalClientes: string // ou number, se você converte-lo antes de enviar
+  sistemaAtual: string
+  mensagem: string
+  gestaoProcessos: boolean
+  businessInteligence: boolean
+  contactCenter: boolean
+}
+
 export function ContactRegisterForm() {
+  const handleSubmit = async (
+    values: FormValues,
+    { setSubmitting, resetForm }: FormikHelpers<FormValues>
+  ) => {
+    try {
+      const response = await fetch('/api/users/index.ts', {
+        // Substituir pelo caminho correto do endpoint
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(values)
+      })
+
+      if (!response.ok) {
+        throw new Error('Falha ao enviar formulário')
+      }
+
+      const responseData = await response.json()
+      console.log('Formulário enviado com sucesso:', responseData)
+      resetForm()
+    } catch (error) {
+      console.error('Erro ao enviar o formulário:', error)
+    } finally {
+      setSubmitting(false)
+    }
+  }
   return (
     <Formik
       initialValues={initialValues}
       validationSchema={validationSchema}
-      onSubmit={() => console.log(initialValues)}
+      onSubmit={handleSubmit}
     >
       {({ values, touched, errors, isValid, setFieldValue }) => (
         <Form>
@@ -184,7 +224,7 @@ export function ContactRegisterForm() {
                 button_size="xxl"
                 styles="primary"
                 className="button-form"
-                disabled={!isValid} // Usa isSubmitting corretamente
+                disabled={!isValid} // Desabilita o botão enquanto o formulário é inválido ou está sendo submetido
               >
                 Enviar Mensagem
               </Button>
