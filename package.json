@@ -32,6 +32,7 @@
     "eslint-plugin-react": "^7.33.2",
     "formik": "^2.4.5",
     "framer-motion": "^10.16.16",
+    "mysql": "^2.18.1",
     "next": "14.1.0",
     "polished": "^4.2.2",
     "react": "^18",
@@ -47,6 +48,7 @@
     "react-responsive": "^9.0.2",
     "react-spring": "^9.7.3",
     "react-tooltip": "^5.25.1",
+    "reflect-metadata": "^0.2.2",
     "styled-components": "^6.1.8",
     "uuid": "^9.0.1",
     "web-vitals": "^3.5.0",
@@ -65,6 +67,7 @@
     "@storybook/test": "^7.6.16",
     "@testing-library/react": "^14.2.1",
     "@testing-library/user-event": "^14.5.2",
+    "@types/mysql": "^2.15.26",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-beautiful-dnd": "^13.1.7",
@@ -80,6 +83,7 @@
     "prettier": "3.2.5",
     "prisma": "^5.12.1",
     "storybook": "^7.6.16",
+    "tsyringe": "^4.8.0",
     "typescript": "^5"
   }
 }
